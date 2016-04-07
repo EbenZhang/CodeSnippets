@@ -3,7 +3,7 @@
     <CodeSnippet Format="1.0.0"> 
         <Header> 
             <Title>Property With Change Event</Title> 
-            <Shortcut>propn</Shortcut> 
+            <Shortcut>np</Shortcut> 
             <Description>Code snippet for property that calls RaisePropertyChanged and XML description</Description> 
             <Author>PLaker</Author> 
             <SnippetTypes> 
@@ -29,20 +29,21 @@
                 </Literal> 
             </Declarations> 
             <Code Language="csharp"><![CDATA[$type$ $field$; 
-            public $type$ $property$ { 
-                get 
-		{ 
-			return $field$; 
-		} 
-                set 
-		{ 
-			if ($field$ != value)
-			{
-				$field$ = value; 
-				RaisePropertyChanged("$property$"); 
-			}
-		}
+        public $type$ $property$
+        { 
+            get
+            { 
+                return $field$; 
             } 
+            set 
+            { 
+                if ($field$ != value)
+                {
+                    $field$ = value; 
+                    RaisePropertyChanged(nameof($property$)); 
+                }
+            }
+        } 
             $end$]]></Code> 
         </Snippet> 
     </CodeSnippet> 
